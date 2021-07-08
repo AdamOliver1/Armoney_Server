@@ -29,7 +29,7 @@ router.post("/login", async (req, res) => {
   try {
     let userBody = req.body
     if (userBody) {
-      const user = await bl.isUserExist(userBody)
+      const user = await bl.login(userBody)
       if (user) {
         res.send(user)
       }

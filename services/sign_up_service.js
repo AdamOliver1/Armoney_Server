@@ -1,9 +1,11 @@
-const users = [{ username: "tal", password: "123456", email: "sadsada" }];
+const db = require('../database/database_requests')
+
 const getUsers = async () => {
-  return users
+  return await db.getAllUsers()
 }
 const isUserExist = async (userToSearch) => {
-  let user = users.find(
+  const users = await getUsers()
+  const user =users.find(
     (user) =>
       user.email == userToSearch.email
   );
@@ -15,19 +17,19 @@ const signup = async (user) => {
     return { status: false, msg: "username already exist" }
   }
   else {
-    users.push(user)
+ db.addUser(user)
     return true;
   }
 }
 
 const login = async (userLoged) => {
-  let user = await isUserExist(userLoged)
-  if (user) {
-    return user
-  }
-  else {
-    return false
-  }
+  const users = await getUsers()
+  const user =users.find(
+    (user) =>
+      user.email == userLoged.email&& user.password== userLoged.password
+  );
+  return user
+
 }
 
 module.exports = {

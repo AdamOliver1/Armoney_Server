@@ -10,6 +10,8 @@ app.use(sign_up_router);
 app.get('**',(req,res)=>{
     res.sendStatus(404)
 })
+app.use(sign_up_router);
+
 app.listen(config.PORT,() => {
     console.log(`ARMONEY IS IN YOUT POCKET!`);
     

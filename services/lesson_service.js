@@ -18,7 +18,7 @@ class Lesson_service {
     getInvestingLongTerm(){
         return this.LessonsInvestingLongTerm;
     }
-    getInvestingShortTerm = () => {
+    getInvestingShortTerm (){
         return this.LessonsInvestingShortTerm;
     }
 

@@ -27,6 +27,10 @@ module.exports = function(sequelize, DataTypes) {
     month: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    savings: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
     }
   }, {
     sequelize,
