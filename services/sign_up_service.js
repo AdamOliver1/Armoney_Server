@@ -1,41 +1,37 @@
-const users = [{ username: "tal", password: "123456" }];
+const db = require('../database/database_requests')
 
-const isUserExist =async(userToSearch)=> {
-  let user = users.find(
-    (user) =>
-      user.username == userToSearch.username
-  );
-  if (user) {
-    return true;
-  }
-  return false;
+const getUsers = async () => {
+  return await db.getAllUsers()
 }
-const signup = async(user) =>{
-    let exist = await isUserExist(user)
+const isUserExist = async (userToSearch) => {
+  const users = await getUsers()
+  const user =users.find(
+    (user) =>
+      user.email == userToSearch.email
+  );
+  return user
+}
+const signup = async (user) => {
+  let exist = await isUserExist(user)
   if (exist) {
     return { status: false, msg: "username already exist" }
   }
   else {
-    users.push(user)
+ db.addUser(user)
     return true;
   }
 }
 
-const login = async(userLoged) =>{
-  let exist = await isUserExist(userLoged)
-if (exist) {
-  let user = users.find(
+const login = async (userLoged) => {
+  const users = await getUsers()
+  const user =users.find(
     (user) =>
-      user.username == userLoged.username
+      user.email == userLoged.email&& user.password== userLoged.password
   );
   return user
+
 }
-else {
-return false
-}
-}
-const getUsers =async ()=>{
-  return users
-}
-module.exports = { isUserExist, signup,login,getUsers
- };
+
+module.exports = {
+  isUserExist, signup, login, getUsers
+};

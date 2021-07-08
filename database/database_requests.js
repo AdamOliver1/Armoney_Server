@@ -3,11 +3,11 @@ const db = require('../configs/db_config');
 
 
 class DatbaseRequests {
-    async getAllUsers() {
-        try {
-            const users = await db.users.findAll();
-            return users;
-        } catch (error) {
+    async getAllUsers (){
+        try{
+        const users = await db.users.findAll();
+        return users;
+        }catch(error){
             console.log(error);
             return [];
         }
