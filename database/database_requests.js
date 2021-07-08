@@ -65,7 +65,7 @@ class DatbaseRequests {
     async addNewExpense(props) {
         try {
             const moneyFound = this.getMoneyDataOfUser(props);
-            const newExpense = db.expenses.create({ savings: props.savings, month: props.month, home_pleasure: props.home_pleasure, home_mandatory: props.home_mandatory, base_pleasure: props.base_pleasure, base_mandatory: props.base_mandatory });
+            const newExpense = db.expenses.create({ savings: props.savings, month: props.month, home_pleasure: props.home_pleasure, home_mandatory: props.home_mandatory, army_pleasure: props.army_pleasure, army_mandatory: props.army_mandatory });
             const newMoneyExpenses = db.expenses_money_data.create({ expenses_expense_id: newExpense.expense_id, money_data_money_data_id: moneyFound.money_data_id })
             return true;
         } catch (error) {
