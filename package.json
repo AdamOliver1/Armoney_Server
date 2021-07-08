@@ -1,0 +1,14 @@
+{
+  "name": "armoney",
+  "version": "1.0.0",
+  "description": "Armoney soldiers",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Armoney group",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
