@@ -11,10 +11,10 @@ class suggestion_service {
 
 
 
-    getMashkarCard = () => {
+    getMashkarCard ()  {
         return this.mashkarCard;
     }
-    getInvestingShortTerm = () => {
+    getInvestingShortTerm () {
         return this.LessonsInvestingShortTerm;
     }
 

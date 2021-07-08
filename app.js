@@ -7,10 +7,8 @@ const config = require('./configs/config');
 const app = express();
 
 
-
 //app.use(sessionRouter);
 app.use(sign_up_router);
-
 
 app.listen(config.PORT,() => {
     console.log("ARMONEY IS IN YOUT POCKET!");
