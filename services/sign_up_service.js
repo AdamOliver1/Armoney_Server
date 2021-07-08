@@ -1,17 +1,16 @@
-const users = [{ username: "tal", password: "123456" }];
-
-const isUserExist =async(userToSearch)=> {
+const users = [{ username: "tal", password: "123456", email: "sadsada" }];
+const getUsers = async () => {
+  return users
+}
+const isUserExist = async (userToSearch) => {
   let user = users.find(
     (user) =>
-      user.username == userToSearch.username
+      user.email == userToSearch.email
   );
-  if (user) {
-    return true;
-  }
-  return false;
+  return user
 }
-const signup = async(user) =>{
-    let exist = await isUserExist(user)
+const signup = async (user) => {
+  let exist = await isUserExist(user)
   if (exist) {
     return { status: false, msg: "username already exist" }
   }
@@ -21,21 +20,16 @@ const signup = async(user) =>{
   }
 }
 
-const login = async(userLoged) =>{
-  let exist = await isUserExist(userLoged)
-if (exist) {
-  let user = users.find(
-    (user) =>
-      user.username == userLoged.username
-  );
-  return user
+const login = async (userLoged) => {
+  let user = await isUserExist(userLoged)
+  if (user) {
+    return user
+  }
+  else {
+    return false
+  }
 }
-else {
-return false
-}
-}
-const getUsers =async ()=>{
-  return users
-}
-module.exports = { isUserExist, signup,login,getUsers
- };
+
+module.exports = {
+  isUserExist, signup, login, getUsers
+};
