@@ -15,6 +15,10 @@ module.exports = function(sequelize, DataTypes) {
     current_money: {
       type: DataTypes.BIGINT,
       allowNull: false
+    },
+    target_type: {
+      type: "\"CHAR\"",
+      allowNull: true
     }
   }, {
     sequelize,

@@ -18,8 +18,8 @@ function initModels(sequelize) {
   money_data.hasMany(expenses_money_data, { as: "expenses_money_data", foreignKey: "money_data_money_data_id"});
   soldiers.belongsTo(money_data, { as: "money_datum", foreignKey: "money_data_id"});
   money_data.hasMany(soldiers, { as: "soldiers", foreignKey: "money_data_id"});
-  soldiers.belongsTo(users, { as: "soldier", foreignKey: "soldier_id"});
-  users.hasOne(soldiers, { as: "soldier", foreignKey: "soldier_id"});
+  soldiers.belongsTo(users, { as: "user", foreignKey: "user_id"});
+  users.hasMany(soldiers, { as: "soldiers", foreignKey: "user_id"});
 
   return {
     expenses,
