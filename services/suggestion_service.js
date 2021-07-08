@@ -17,7 +17,7 @@ class suggestion_service {
     getInvestingShortTerm () {
         return this.LessonsInvestingShortTerm;
     }
-
+    
 }
 
 module.exports = new suggestion_service;

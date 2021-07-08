@@ -6,11 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrementIdentity: true,
       type: DataTypes.BIGINT,
       allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'users',
-        key: 'user_id'
-      }
+      primaryKey: true
     },
     soldier_type: {
       type: DataTypes.TEXT,
@@ -34,7 +30,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     user_id: {
       type: DataTypes.BIGINT,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'users',
+        key: 'user_id'
+      }
     },
     money_data_id: {
       type: DataTypes.BIGINT,
