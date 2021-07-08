@@ -1,5 +1,5 @@
 const express = require('express');
-const sessionRouter = require('./routers/loginSession')
+//const sessionRouter = require('./routers/loginSession')
 const sign_up_router = require('./routers/sign_up_router')
 
 const {lesson_service,progress_service,sign_up_service,suggestion_service} = require('./imports');
@@ -8,7 +8,7 @@ const app = express();
 
 
 
-app.use(sessionRouter);
+//app.use(sessionRouter);
 app.use(sign_up_router);
 
 
