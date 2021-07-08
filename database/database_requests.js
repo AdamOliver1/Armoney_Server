@@ -4,7 +4,7 @@ class DatbaseRequests {
     async getAllUsers (){
         try{
         const users = await db.users.findAll();
-        return JSON.stringify(users);
+        return users;
         }catch(error){
             console.log(error);
             return [];
