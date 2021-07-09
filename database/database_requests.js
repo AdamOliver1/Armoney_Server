@@ -43,7 +43,7 @@ class DatbaseRequests {
 
         } catch (error) {
             console.log(error);
-            return [];
+            return null 
         }
     }
 

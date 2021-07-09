@@ -23,13 +23,16 @@ router.post("/getPercentSavings", async (req, res) => {
 })
 
 
-router.get("/getExpensesById", async (req, res) => {
+router.post("/getExpensesById", async (req, res) => {
     try {
-        let user_id = req.body
+        let user_id = req.body.user_id
         if (user_id) {
           let result = await bl.getExpensesById(user_id)
           if(result){
             res.send(result)
+          }
+          else{
+            res.sendStatus(500)
           }
         }
         else {
